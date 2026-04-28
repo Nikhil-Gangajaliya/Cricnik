@@ -24,7 +24,7 @@ import authRouter from "./routes/auth.routes.js";
 import matchRouter from "./routes/match.routes.js";
 import playerRouter from "./routes/player.routes.js";
 import scoreRouter from "./routes/score.routes.js";
-import startMatchRouter from "./routes/startMatch.routes.js";
+import startMatchRouter from "./routes/startmatch.routes.js";
 import teamRouter from "./routes/team.routes.js";
 import scorecardRouter from "./routes/scorecard.routes.js";
 
