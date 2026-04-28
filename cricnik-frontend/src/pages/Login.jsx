@@ -33,6 +33,7 @@ export default function Login() {
   return (
     <div className="login-page" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="login-container">
+        <h1 className="login-title">Cricnik</h1>
         <h2>Login</h2>
 
         <input
