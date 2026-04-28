@@ -9,6 +9,13 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
 
+      workbox: {
+        cleanupOutdatedCaches: true,
+        clientsClaim: true,
+        skipWaiting: true,
+      },
+
+
       manifest: {
         name: "Cricnik",
         short_name: "Cricnik",
