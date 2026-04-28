@@ -1,0 +1,46 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Default (mobile first) */
+.mobile-app {
+  display: block;
+}
+
+.desktop-warning {
+  display: none;
+}
+
+/* Desktop screen */
+@media (min-width: 768px) {
+
+  .mobile-app {
+    display: none;
+  }
+
+  .desktop-warning {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    padding: 20px;
+
+    background: #f1f5f9;
+    text-align: center;
+  }
+
+  .desktop-warning h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .desktop-warning p {
+    font-size: 15px;
+    color: #64748b;
+  }
+}

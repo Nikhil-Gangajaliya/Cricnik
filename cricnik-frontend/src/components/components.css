@@ -1,0 +1,525 @@
+* {
+  box-sizing: border-box;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  height: 60px;
+  background: #ffffff;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-top: 2px solid #e5e7eb;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+
+  z-index: 100;
+}
+
+/* NAV ITEMS */
+.bottom-nav div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  color: #1e293b;
+
+  cursor: pointer;
+  flex: 1;
+}
+
+/* ICON */
+.bottom-nav i {
+  font-size: 18px;
+  margin-bottom: 3px;
+  color: #22c55e;
+}
+
+
+/* PROFILE ICON FIX */
+.bottom-nav .profile-icon {
+  position: static;
+  /* important */
+}
+
+/* =========================
+   PROFILE DROPDOWN
+========================= */
+.profile-dropdown {
+  position: fixed;
+  /* 🔥 important */
+  bottom: 70px;
+  /* just above bottom nav */
+  right: 10px;
+
+  width: 250px;
+  border-radius: 16px;
+
+  background: #ffffff;
+  color: #333;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  /* padding: 10px; */
+  z-index: 9999;
+}
+
+/* Arrow */
+.profile-dropdown::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  /* 👇 changed */
+  right: 18px;
+
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+
+  transform: rotate(45deg);
+}
+
+/* =========================
+   TOP SECTION
+========================= */
+.profile-top {
+  padding: 14px;
+  font-weight: 600;
+  font-size: 15px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.profile-name{
+  font-size: 16px;
+  color: #0f172a;
+}
+
+/* =========================
+   ITEMS
+========================= */
+.profile-item {
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: #eee;
+}
+
+/* Clickable */
+.clickable {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.clickable:hover {
+  background: #f5f5f5;
+}
+
+/* Logout */
+.logout {
+  color: #e11d48;
+  font-weight: 500;
+}
+
+/* =========================
+   INPUT (Change Password)
+========================= */
+.profile-input {
+  width: 100%;
+  padding: 11px;
+  margin: 10px 14px;
+
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+
+  font-size: 13px;
+
+  box-sizing: border-box;
+}
+
+/* Focus effect */
+.profile-input:focus {
+  border: 1px solid #22c55e;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.profile-btn {
+  width: calc(100% - 28px);
+  margin: 10px 14px;
+
+  padding: 11px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(to right, #4ade80, #22c55e);
+  color: white;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+.profile-btn:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   BACK TEXT
+========================= */
+.back-text {
+  margin: 10px 0 14px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+}
+
+.profile-dropdown {
+  animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE SAFETY (IMPORTANT)
+========================= */
+@media (max-width: 420px) {
+  .profile-dropdown {
+    right: 8px;
+    width: 92vw;
+    /* responsive width */
+    max-width: 280px;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.modal-box {
+  width: 85%;
+  max-width: 320px;
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  color: #fff;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.modal-actions button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+
+  border-radius: 10px;
+  border: none;
+
+  cursor: pointer;
+}
+
+.modal-actions .danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+
+/* All Matches */
+/* CARD */
+.all-matches-container{
+  padding: 16px;
+  background: #f8fafc;
+  min-height: 100vh;
+
+  overflow-y: auto;   /* ✅ enable vertical scroll */
+  padding-bottom: 80px; /* ✅ space for bottom navbar */
+}
+
+.all-matches-heading{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  margin-left: 10px;
+}
+
+.match-card {
+  background: #ffffff;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  box-shadow: 10px 8px 18px rgba(0.05, 0, 0, 0.08);
+  cursor: pointer;
+  border-left: 4px solid #f1d19a;
+}
+
+
+.match-time {
+  font-size: 13px;
+  color: #1e293b;
+  margin: 0;
+}
+
+.match-venue {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* TEAM ROW */
+.team-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT */
+.team-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.team-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* RIGHT */
+.team-right {
+  text-align: right;
+}
+
+.team-score {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.team-score span {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* RESULT */
+.match-result {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  color: #3fb3e7;
+}
+
+/* Pending */
+.match-result.pending {
+  color: #f59e0b;
+}
+
+/* scorecard */
+
+/* =========================
+   CONTAINER
+========================= */
+.scorecard-container {
+ padding: 16px;
+  background: #f8fafc;
+  min-height: 100vh;
+
+  overflow-y: auto;   /* ✅ enable vertical scroll */
+  padding-bottom: 80px; /* ✅ space for bottom navbar */
+}
+
+/* Heading */
+.scorecard-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 14px;
+  margin-left: 3px;
+  border-left: 4px solid #22c55e;
+  padding-left: 5px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+/* =========================
+   INNINGS CARD
+========================= */
+.innings-card {
+  background: #ffffff;
+  border-radius: 16px;
+
+  padding: 16px;
+  margin-bottom: 16px;
+
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   INNINGS TITLE
+========================= */
+.innings-title {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   TEAM NAME
+========================= */
+.team-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 4px;
+  color: #0f172a;
+}
+
+/* =========================
+   SCORE (MAIN FOCUS)
+========================= */
+.team-score {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 6px;
+
+  color: #434343; /* cricket green */
+}
+
+.team-score::after {
+  content: " runs";
+  font-size: 12px;
+  color: #64748b;
+  margin-left: 4px;
+}
+
+/* =========================
+   OVERS
+========================= */
+.team-overs {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 12px 0 6px;
+
+  color: #334155;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   TABLE STYLE
+========================= */
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* TABLE HEADER */
+.score-table th {
+  text-align: left;
+  padding: 8px;
+
+  background: #f9efde;
+  color: #475569;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* TABLE ROW */
+.score-table td {
+  padding: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* ROW HOVER (SUBTLE) */
+.score-table tr:hover {
+  background: #f9fafb;
+}
+
+/* PLAYER NAME */
+.score-table td:first-child {
+  font-weight: 500;
+  color: #0f172a;
+}
+
+/* NUMBERS ALIGNMENT */
+.score-table td:not(:first-child) {
+  text-align: center;
+  color: #334155;
+}
+
+/* LAST ROW BORDER REMOVE */
+.score-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+.no-data {
+  font-size: 13px;
+  color: #777;
+}
