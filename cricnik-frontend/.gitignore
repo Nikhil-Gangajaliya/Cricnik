@@ -27,3 +27,4 @@ dist-ssr
 dist
 dev-dist
 dist-ssr
+.env
