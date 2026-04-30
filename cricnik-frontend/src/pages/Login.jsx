@@ -8,11 +8,13 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      setErrorMsg(""); 
+      setLoading(true);
+      setErrorMsg("");
 
       const res = await api.post("/auth/login", { email, password });
 
@@ -21,12 +23,12 @@ export default function Login() {
       navigate("/home");
 
     } catch (error) {
-      console.error("Login failed", error);
-
       const message =
         error?.response?.data?.message || "Invalid email or password";
 
       setErrorMsg(message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,7 +51,9 @@ export default function Login() {
 
         {errorMsg && <p className="error-text">{errorMsg}</p>}
 
-        <button onClick={handleLogin}>Login</button>
+        <button onClick={handleLogin} disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </button>
 
         <p>
           No account?{" "}

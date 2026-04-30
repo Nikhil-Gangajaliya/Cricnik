@@ -33,6 +33,7 @@ export default function Signup() {
   return (
     <div className="signup-page" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="signup-container">
+         <h1 className="login-title">Cricnik</h1>
         <h2>Signup</h2>
 
         <input

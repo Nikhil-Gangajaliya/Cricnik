@@ -67,11 +67,24 @@ const startSecondInnings = async (data) => {
     }
 };
 
+// matches/recent-matches
+
+const recentMatches = async () => {
+    try {
+        const response = await api.get('/matches/recent-matches');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching recent matches:', error);
+        throw error;
+    }
+};
+
 export {
     createMatch,
     deleteMatch,
     allMatches,
     matchById,
     startMatch,
-    startSecondInnings
+    startSecondInnings,
+    recentMatches
 };

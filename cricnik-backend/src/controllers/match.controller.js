@@ -136,9 +136,61 @@ const getMatchById = asyncHandler(async (req, res) => {
     return res.json(new ApiResponse(200, responseData));
 });
 
+const getRecentMatches = asyncHandler(async (req, res) => {
+    const matches = await Match.find({ user: req.user._id })
+        .populate("teamA teamB winner")
+        .populate("innings")
+        .sort({ createdAt: -1 }) 
+        .limit(3); 
+    const data = matches.map(m => {
+
+        let winnerName = null;
+
+        if (m.status === "completed" && m.winner) {
+            winnerName = m.winner.name;
+        }
+
+        const getTeamScore = (teamId) => {
+            const inn = m.innings?.find(
+                i => String(i.battingTeam) === String(teamId)
+            );
+
+            return inn
+                ? {
+                    score: `${inn.totalRuns || 0}/${inn.wickets || 0}`,
+                    overs: `${inn.overs || 0}.${inn.balls || 0}`
+                }
+                : null;
+        };
+
+        const teamAData = getTeamScore(m.teamA._id);
+        const teamBData = getTeamScore(m.teamB._id);
+
+        return {
+            _id: m._id,
+            teamA: m.teamA,
+            teamB: m.teamB,
+            venue: m.venue,
+            date: m.date,
+            status: m.status,
+            result: m.result || "Not completed",
+            winner: winnerName,
+
+            teamAScore: teamAData?.score || null,
+            teamAOvers: teamAData?.overs || null,
+
+            teamBScore: teamBData?.score || null,
+            teamBOvers: teamBData?.overs || null
+        };
+    });
+
+    return res.json(new ApiResponse(200, data));
+});
+
 export {
     createMatch,
     deleteMatch,
     getMatches,
-    getMatchById
+    getMatchById,
+    getRecentMatches
 };

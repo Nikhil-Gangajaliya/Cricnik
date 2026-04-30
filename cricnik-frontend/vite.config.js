@@ -24,8 +24,8 @@ export default defineConfig({
         start_url: "/",
         display: "standalone",
 
-        background_color: "#0f172a",
-        theme_color: "#0f172a",
+        background_color: "#0b3d2e",   // dark green bg
+        theme_color: "#1db954",        // primary green
 
         orientation: "portrait",
 
@@ -41,7 +41,7 @@ export default defineConfig({
             type: "image/png",
           },
         ],
-      },
+      }
     }),
   ],
 });
