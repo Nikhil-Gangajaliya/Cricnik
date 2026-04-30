@@ -42,7 +42,7 @@
 .bottom-nav i {
   font-size: 18px;
   margin-bottom: 3px;
-  color: #22c55e;
+  color: #3b81bc;
 }
 
 
@@ -154,7 +154,7 @@
 
 /* Focus effect */
 .profile-input:focus {
-  border: 1px solid #22c55e;
+  border: 1px solid #3b81bc;
 }
 
 /* =========================
@@ -169,14 +169,14 @@
   border: none;
   border-radius: 10px;
 
-  background: linear-gradient(to right, #4ade80, #22c55e);
+  background: linear-gradient(to right, #5d9ed4, #3b81bc);
   color: white;
   font-weight: 500;
 
   cursor: pointer;
   transition: 0.2s ease;
 
-  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+  box-shadow: 0 4px 12px #787d81;
 }
 
 .profile-btn:active {
@@ -386,7 +386,7 @@
   color: #0f172a;
   margin-bottom: 14px;
   margin-left: 3px;
-  border-left: 4px solid #22c55e;
+  border-left: 4px solid #3b81bc;
   padding-left: 5px;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
