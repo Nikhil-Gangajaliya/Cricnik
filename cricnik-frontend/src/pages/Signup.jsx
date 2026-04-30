@@ -9,31 +9,47 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [errorMsg, setErrorMsg] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSignup = async () => {
     try {
+      setLoading(true);
+      setErrorMsg("");
+
       const res = await api.post("/auth/signup", {
         username,
         email,
-        password
+        password,
       });
 
       // ✅ store token
       localStorage.setItem("token", res.data.data.accessToken);
 
-      // ✅ direct login
-      navigate("/home");
+      // ✅ small delay (1.5 sec) before redirect
+      setTimeout(() => {
+        navigate("/home");
+      }, 1500);
 
     } catch (error) {
-      console.error("Signup failed", error);
+      const message =
+        error?.response?.data?.message || "Signup failed";
+
+      setErrorMsg(message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="signup-page" style={{ backgroundImage: `url(${bgImage})` }}>
+    <div
+      className="signup-page"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <div className="signup-container">
-         <h1 className="login-title">Cricnik</h1>
+        <h1 className="login-title">Cricnik</h1>
         <h2>Signup</h2>
 
         <input
@@ -52,7 +68,11 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button onClick={handleSignup}>Signup</button>
+        {errorMsg && <p className="error-text">{errorMsg}</p>}
+
+        <button onClick={handleSignup} disabled={loading}>
+          {loading ? "Creating account..." : "Signup"}
+        </button>
 
         <p>
           Already have account?{" "}
