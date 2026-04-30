@@ -33,7 +33,7 @@ export default function Home() {
   // 🚀 Pre-warm backend + fetch data
   useEffect(() => {
     // wake backend (important for Render free tier)
-    fetch("https://cricnik-backend-4g2a.onrender.com")
+    fetch("https://cricnik-backend-4g2a.onrender.com/api/health")
       .catch(() => {});
 
     fetchRecentMatches();
