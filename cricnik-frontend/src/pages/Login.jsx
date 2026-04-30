@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/api";
 import "./pages.css";
-import bgImage from "../assets/bg.png";
+import bgImage from "../assets/bg2.png";
 
 export default function Login() {
   const [email, setEmail] = useState("");

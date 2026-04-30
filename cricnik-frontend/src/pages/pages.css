@@ -2,11 +2,11 @@
   box-sizing: border-box;
 }
 
-.login-title{
-  font-size: 28px;
+.login-title {
+  font-size: 30px;
   font-weight: 900;
-  color: #4ade80;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  color: #005e8b;
+  letter-spacing: 1px;
   text-align: center;
 }
 
@@ -87,14 +87,14 @@
   color: #fff;
   font-size: 14px;
 
-  caret-color: #4ade80;
+  caret-color: #1a68a7;
   transition: 0.2s ease;
 }
 
 /* Focus */
 .signup-page input:focus,
 .login-page input:focus {
-  border: 1px solid rgba(74, 222, 128, 0.7);
+  border: 1px solid #216faf;
   background: rgba(255, 255, 255, 0.18);
 }
 
@@ -121,7 +121,7 @@
   cursor: pointer;
   transition: 0.2s ease;
 
-  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+  box-shadow: 0 4px 12px #787d81;
 }
 
 /* Tap */
@@ -135,16 +135,17 @@
 .login-page p {
   margin-top: 14px;
   text-align: center;
-  font-size: 13px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
 }
 
 /* Link */
 .signup-page span,
 .login-page span {
-  color: #86efac;
-  font-weight: 500;
+  color: #2e1d86;
+  font-weight: 700;
   cursor: pointer;
+  margin-left: 2px;
 }
 
 .error-text {
@@ -163,12 +164,10 @@
 .skeleton-card {
   height: 80px;
   border-radius: 12px;
-  background: linear-gradient(
-    90deg,
-    #c2bebe 25%,
-    #e0e0e0 50%,
-    #cfc3c3 75%
-  );
+  background: linear-gradient(90deg,
+      #c2bebe 25%,
+      #e0e0e0 50%,
+      #cfc3c3 75%);
   background-size: 200% 100%;
   animation: shimmer 1.2s infinite;
 }
@@ -358,8 +357,10 @@
   background: #f8fafc;
   min-height: 100vh;
 
-  overflow-y: auto;   /* ✅ enable vertical scroll */
-  padding-bottom: 80px; /* ✅ space for bottom navbar */
+  overflow-y: auto;
+  /* ✅ enable vertical scroll */
+  padding-bottom: 80px;
+  /* ✅ space for bottom navbar */
 }
 
 .teams-heading {
@@ -492,12 +493,14 @@
    CONTAINER
 ========================= */
 .teamview-container {
- padding: 16px;
+  padding: 16px;
   background: #f8fafc;
   min-height: 100vh;
 
-  overflow-y: auto;   /* ✅ enable vertical scroll */
-  padding-bottom: 80px; /* ✅ space for bottom navbar */
+  overflow-y: auto;
+  /* ✅ enable vertical scroll */
+  padding-bottom: 80px;
+  /* ✅ space for bottom navbar */
 }
 
 .teamview-heading {
@@ -677,8 +680,10 @@
   background: #f8fafc;
   min-height: 100vh;
 
-  overflow-y: auto;   /* ✅ enable vertical scroll */
-  padding-bottom: 80px; /* ✅ space for bottom navbar */
+  overflow-y: auto;
+  /* ✅ enable vertical scroll */
+  padding-bottom: 80px;
+  /* ✅ space for bottom navbar */
 }
 
 
@@ -1008,6 +1013,7 @@
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
